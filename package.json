@@ -1,0 +1,30 @@
+{
+  "name": "giphy-wrapper",
+  "description": "A simple wrapper for the giphy public api",
+  "version": "0.0.1",
+  "author": {
+    "name": "Patrik Ring",
+    "email": "me@patrikring.se"
+  },
+  "private": true,
+  "keywords": [
+    "giphy",
+    "gif",
+    "api"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "0.3.x"
+  },
+  "main": "./index.js",
+  "engines": {
+    "node": ">=0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ptte/node-giphy.git"
+  },
+  "homepage": "http://www.patrikring.se",
+  "readmeFilename": "README.md",
+  "_id": "giphy-wrapper@0.0.1"
+}
