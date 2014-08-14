@@ -8,24 +8,6 @@ var GiphyApiWrapper = function (api_key) {
 
 // Endpoints //
 
-// Recent
-// Example request http://api.giphy.com/v1/gifs/recent?api_key=dc6zaTOxFJmzC&tag=ryan-gosling
-GiphyApiWrapper.prototype.recent = function (tag, limit, callback) {
-  var tag = tag || null,
-    limit = limit || 10,
-    path = 'gifs/recent';
-
-  var args = new Array('limit=' + limit);
-  
-  if (tag !== null) {
-    args.push('tag=' + limit);
-  }
-
-  args = args.join('&');
-
-  this._call(path, args, callback);
-};
-
 // Limit max 100, default 25
 GiphyApiWrapper.prototype.search = function (query, limit, offset, callback) {
   var query = query || null,
@@ -45,6 +27,62 @@ GiphyApiWrapper.prototype.search = function (query, limit, offset, callback) {
   }
 
   this._call(path, args, callback);
+}
+
+// Grab a single giphy image by its unique ID
+GiphyApiWrapper.prototype.getById = function (id, callback) {
+  var path = 'gifs/' + id;
+
+  if (id === undefined) {
+    callback(new Error('ID is not set'), null);
+    return;
+  }
+
+  this._call(path, new Array(), callback);
+}
+
+// Grab many images by their IDs
+GiphyApiWrapper.prototype.getByIds = function (ids, callback) {
+  var path = 'gifs',
+    ids = ids || null;
+
+  if (ids === null) {
+    callback(new Error('IDs are not set'), null);
+    return;
+  }
+
+  var args = 'ids=' + ids.join(',');
+
+  this._call(path, args, callback);
+}
+
+// ..
+GiphyApiWrapper.prototype.translate = function (query, callback) {
+  var query = query || null,
+    path = 'gifs/translate';
+
+  if (query === null) {
+    callback(new Error('No query'), null);
+    return;
+  }
+
+  this._call(path, 's=' + query, callback);
+}
+
+// Grab a random image by the tag name
+GiphyApiWrapper.prototype.random = function (tag, callback) {
+  var arg = 'tag=' + tag || null,
+    path = 'gifs/random';
+
+  this._call(path, arg, callback);
+}
+
+// Grab some trending images
+GiphyApiWrapper.prototype.trending = function (limit, callback) {
+  var arg = 'limit=' + limit || null,
+    path = 'gifs/trending';
+
+  this._call(path, arg, callback);
 }
 
 // Internal //

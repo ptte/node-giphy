@@ -35,8 +35,36 @@ suite('Giphy api', function () {
 		});
 	});
 
-	test('Giphy recent', function (done) {
-		giphy.recent('dun', 10, function (err, data) {
+	test('Giphy getById', function (done) {
+		giphy.getById('feqkVgjJpYtjy', function (err, data) {
+			assert.equal(typeof(data), 'object');
+			done();
+		});
+	});
+
+	test('Giphy getByIds', function (done) {
+		giphy.getByIds(['feqkVgjJpYtjy', '7rzbxdu0ZEXLy'], function (err, data) {
+			assert.equal(typeof(data), 'object');
+			done();
+		});
+	});
+
+	test('Giphy translate', function (done) {
+		giphy.translate('superman', function (err, data) {
+			assert.equal(typeof(data), 'object');
+			done();
+		});
+	});
+
+	test('Giphy random', function (done) {
+		giphy.random('superman', function (err, data) {
+			assert.equal(typeof(data), 'object');
+			done();
+		});
+	});
+
+	test('Giphy trending', function (done) {
+		giphy.trending(1, function (err, data) {
 			assert.equal(typeof(data), 'object');
 			done();
 		});
