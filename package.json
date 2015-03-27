@@ -1,7 +1,7 @@
 {
   "name": "giphy-wrapper",
   "description": "A simple wrapper for the giphy public api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
     "name": "Patrik Ring",
     "email": "me@patrikring.se"
