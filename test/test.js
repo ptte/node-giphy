@@ -29,7 +29,7 @@ suite('Giphy api', function () {
 	});
 
 	test('Giphy search', function (done) {
-		giphy.search('otters', 10, 0, function (err, data) {
+		giphy.search('otters', 10, 0, 'y',function (err, data) {
 			assert.equal(typeof(data), 'object');
 			done();
 		});
