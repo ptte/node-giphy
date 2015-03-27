@@ -9,16 +9,18 @@ var GiphyApiWrapper = function (api_key) {
 // Endpoints //
 
 // Limit max 100, default 25
-GiphyApiWrapper.prototype.search = function (query, limit, offset, callback) {
+GiphyApiWrapper.prototype.search = function (query, limit, offset, rating, callback) {
   var query = query || null,
     limit = limit || 25,
     offset = offset || 0,
+    rating = rating || 'g',
     path = 'gifs/search';
   
   var args = new Array(
     'q=' + query,
     'limit=' + limit,
-    'offset=' + offset
+    'offset=' + offset,
+    'rating=' + rating
   ).join('&');
 
   if (query === null) {
