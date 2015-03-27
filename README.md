@@ -33,7 +33,7 @@ Examples
 
 var giphy = require('giphy-wrapper')('YOUR_API_KEY');
 
-giphy.search('otters', 10, 0, function (err, data) {
+giphy.search('otters', 10, 0, 'g',function (err, data) {
 	if (err) {
 		// check error
 	}
