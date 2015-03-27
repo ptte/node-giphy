@@ -21,6 +21,8 @@ Params
 	string keyword
 	int limit (default 25, max 100)
 	int offset
+	string rating (default 'g' (y,g, pg, pg-13 or r))
+
 
 Recent
 
