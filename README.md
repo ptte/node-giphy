@@ -21,6 +21,8 @@ Params
 	string keyword
 	int limit (default 25, max 100)
 	int offset
+	string rating (default 'g' (y,g, pg, pg-13 or r))
+
 
 Recent
 
@@ -31,7 +33,7 @@ Examples
 
 var giphy = require('giphy-wrapper')('YOUR_API_KEY');
 
-giphy.search('otters', 10, 0, function (err, data) {
+giphy.search('otters', 10, 0, 'g',function (err, data) {
 	if (err) {
 		// check error
 	}
